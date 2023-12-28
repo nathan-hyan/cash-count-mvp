@@ -1,6 +1,10 @@
+import Typography from '@mui/material/Typography';
+
 function App() {
-  return <h1>Development!</h1>;
+  return (
+    <Typography variant='h1' component='h2'>
+      Hello
+    </Typography>
+  );
 }
 export default App;
-
-// 262lI1XuIJVUrs5dVkNkmL9q
