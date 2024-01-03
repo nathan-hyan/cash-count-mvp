@@ -15,7 +15,8 @@
       "~hooks/*": ["./hooks/*"],
       "~assets/*": ["./assets/*"],
       "~contexts/*": ["./contexts/*"],
-      "~constants/*": ["./constants/*"]
+      "~constants/*": ["./constants/*"],
+      "~styles/*": ["./styles/*"]
     },
 
     /* Bundler mode */
