@@ -5,7 +5,7 @@ interface Props {
   amount: number;
 }
 
-function PriceDisplay({ label, amount }: Props) {
+export default function PriceDisplay({ label, amount }: Props) {
   return (
     <Box sx={{ padding: '1.25rem 1rem' }}>
       <Typography variant='h6'>
@@ -14,5 +14,3 @@ function PriceDisplay({ label, amount }: Props) {
     </Box>
   );
 }
-
-export default PriceDisplay;
