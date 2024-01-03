@@ -10,6 +10,7 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
+    'plugin:jest-dom/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [
@@ -21,6 +22,10 @@ module.exports = {
       parserOptions: {
         sourceType: 'script',
       },
+    },
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
     },
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
@@ -37,7 +42,10 @@ module.exports = {
               ['^~.*(?:/|$)'],
               // Parent imports. Put `..` last.
               [
-                "^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$', '^\\.\\.(?!/?$)",
+                '^\\./(?=.*/)(?!/?$)',
+                '^\\.(?!/?$)',
+                '^\\./?$',
+                '^\\.\\.(?!/?$)',
               ],
               // Style imports.
               ['^.+\\.?(scss|css)?inline$', '^.+\\.?(scss|css)$'],
@@ -53,9 +61,18 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json'],
   },
-  plugins: ['@typescript-eslint', 'react', 'simple-import-sort', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'jest-dom',
+    'testing-library',
+    'simple-import-sort',
+    'prettier',
+  ],
   rules: {
-    'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'import/extensions': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'max-lines': ['error', 100],
   },
 };

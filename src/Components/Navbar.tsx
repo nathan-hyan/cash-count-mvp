@@ -4,22 +4,7 @@ import { grey } from '@mui/material/colors';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-function CurrencyInfo({ label, amount }: { label: string; amount: number }) {
-  return (
-    <>
-      <Box sx={{ padding: '1.25rem 1rem' }}>
-        <Typography variant='h6' component='h2'>
-          {label}
-        </Typography>
-      </Box>
-      <Box sx={{ padding: '1.25rem 1rem' }}>
-        <Typography variant='h6' component='h3'>
-          ${amount}
-        </Typography>
-      </Box>
-    </>
-  );
-}
+import PriceDisplay from './PriceDisplay';
 
 export default function Navbar() {
   return (
@@ -32,16 +17,11 @@ export default function Navbar() {
             bgcolor: grey[300],
           }}
         >
-          <Typography
-            variant='h5'
-            component='h1'
-            sx={{ flexGrow: 1, ml: '5rem' }}
-          >
+          <Typography variant='h1' sx={{ fontSize: '1.6rem', flexGrow: 1 }}>
             Cash Count
           </Typography>
-          <Box sx={{ display: 'flex', width: '13.3rem' }}>
-            <CurrencyInfo label='Dolar Blue' amount={999} />
-          </Box>
+
+          <PriceDisplay label='Dolar Blue' amount={999} />
         </Toolbar>
       </AppBar>
     </Box>

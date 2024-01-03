@@ -1,10 +1,24 @@
 {
   "compilerOptions": {
+    "types": ["vitest/globals"],
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["./"],
+      "~components/*": ["./components/*"],
+      "~screens/*": ["./screens/*"],
+      "~config/*": ["./config/*"],
+      "~utils/*": ["./utils/*"],
+      "~hooks/*": ["./hooks/*"],
+      "~assets/*": ["./assets/*"],
+      "~contexts/*": ["./contexts/*"],
+      "~constants/*": ["./constants/*"],
+      "~scss/*": ["./scss/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -18,8 +32,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": { "classnameTransform": "camelCaseOnly" }
+      }
+    ]
   },
-  "include": ["src", "./.eslintrc.cjs"],
+  "include": ["src", "./.eslintrc.cjs", "./vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
