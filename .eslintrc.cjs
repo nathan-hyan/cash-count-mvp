@@ -10,7 +10,7 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
-    'plugin:jest-dom/recommended',
+    'plugin:vitest/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [
@@ -24,8 +24,14 @@ module.exports = {
       },
     },
     {
+      files: ['release.config.js'],
+      rules: {
+        'no-template-curly-in-string': 'off',
+      },
+    },
+    {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: ['plugin:testing-library/react'],
+      extends: ['plugin:testing-library/react', 'plugin:vitest/recommended'],
     },
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
@@ -42,10 +48,7 @@ module.exports = {
               ['^~.*(?:/|$)'],
               // Parent imports. Put `..` last.
               [
-                '^\\./(?=.*/)(?!/?$)',
-                '^\\.(?!/?$)',
-                '^\\./?$',
-                '^\\.\\.(?!/?$)',
+                "^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$', '^\\.\\.(?!/?$)",
               ],
               // Style imports.
               ['^.+\\.?(scss|css)?inline$', '^.+\\.?(scss|css)$'],
@@ -59,20 +62,31 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.json', 'release.config.js'],
   },
   plugins: [
     '@typescript-eslint',
     'react',
-    'jest-dom',
+    'vitest',
     'testing-library',
     'simple-import-sort',
     'prettier',
   ],
   rules: {
-    'react/jsx-props-no-spreading': 'off',
-    'import/extensions': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'import/prefer-default-export': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'max-lines': ['error', 100],
   },
 };
