@@ -4,6 +4,23 @@ import { grey } from '@mui/material/colors';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
+function CurrencyInfo({ label, amount }: { label: string; amount: number }) {
+  return (
+    <>
+      <Box sx={{ padding: '1.25rem 1rem' }}>
+        <Typography variant='h6' component='h2'>
+          {label}
+        </Typography>
+      </Box>
+      <Box sx={{ padding: '1.25rem 1rem' }}>
+        <Typography variant='h6' component='h3'>
+          ${amount}
+        </Typography>
+      </Box>
+    </>
+  );
+}
+
 export default function Navbar() {
   return (
     <Box sx={{ mt: 1.5 }}>
@@ -16,23 +33,14 @@ export default function Navbar() {
           }}
         >
           <Typography
-            variant='h6'
+            variant='h5'
             component='h1'
-            sx={{ flexGrow: 1, ml: '5rem', fontSize: '1.875rem' }}
+            sx={{ flexGrow: 1, ml: '5rem' }}
           >
             Cash Count
           </Typography>
-          <Box sx={{ display: 'flex', width: '13.3rem', fontSize: '1.25rem' }}>
-            <Box sx={{ padding: '1.25rem 1rem' }}>
-              <Typography variant='subtitle1' component='h2'>
-                Dolar Blue
-              </Typography>
-            </Box>
-            <Box sx={{ padding: '1.25rem 1rem' }}>
-              <Typography variant='subtitle1' component='h3'>
-                $975
-              </Typography>
-            </Box>
+          <Box sx={{ display: 'flex', width: '13.3rem' }}>
+            <CurrencyInfo label='Dolar Blue' amount={999} />
           </Box>
         </Toolbar>
       </AppBar>
