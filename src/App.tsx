@@ -1,15 +1,10 @@
-import Typography from '@mui/material/Typography';
-
-import Form from './Components/Form';
+import Navbar from '~components/Navbar';
 
 function App() {
   return (
-    <>
-      <Typography variant='h1' component='h2'>
-        Hello
-      </Typography>
-      <Form />
-    </>
+    <div>
+      <Navbar />
+    </div>
   );
 }
 export default App;

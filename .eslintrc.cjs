@@ -10,6 +10,7 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
+    'plugin:vitest/recommended',
     'plugin:prettier/recommended',
   ],
   overrides: [
@@ -21,6 +22,16 @@ module.exports = {
       parserOptions: {
         sourceType: 'script',
       },
+    },
+    {
+      files: ['release.config.js'],
+      rules: {
+        'no-template-curly-in-string': 'off',
+      },
+    },
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react', 'plugin:vitest/recommended'],
     },
     {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
@@ -51,11 +62,31 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./tsconfig.json'],
+    project: ['./tsconfig.json', 'release.config.js'],
   },
-  plugins: ['@typescript-eslint', 'react', 'simple-import-sort', 'prettier'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'vitest',
+    'testing-library',
+    'simple-import-sort',
+    'prettier',
+  ],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'max-lines': ['error', 100],
   },
 };

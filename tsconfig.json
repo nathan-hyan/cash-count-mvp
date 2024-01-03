@@ -5,6 +5,19 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["./"],
+      "~components/*": ["./components/*"],
+      "~screens/*": ["./screens/*"],
+      "~config/*": ["./config/*"],
+      "~utils/*": ["./utils/*"],
+      "~hooks/*": ["./hooks/*"],
+      "~assets/*": ["./assets/*"],
+      "~contexts/*": ["./contexts/*"],
+      "~constants/*": ["./constants/*"],
+      "~styles/*": ["./styles/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -18,8 +31,16 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["vitest/globals"]
   },
-  "include": ["src", "./.eslintrc.cjs"],
+  "include": [
+    "src",
+    ".eslintrc.cjs",
+    "vite.config.ts",
+    "release.config.js",
+    "env.d.ts",
+    "**/*.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
