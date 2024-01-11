@@ -4,12 +4,9 @@ import { grey } from '@mui/material/colors';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import useFetchDolarValue from '~hooks/useFetchDolarValue';
-
 import PriceDisplay from './PriceDisplay';
 
 export default function Navbar() {
-  const DOLAR_INFORMAL = useFetchDolarValue();
   return (
     <Box sx={{ mt: 1.5 }}>
       <AppBar position='static' elevation={0}>
@@ -23,7 +20,8 @@ export default function Navbar() {
           <Typography variant='h1' sx={{ fontSize: '1.6rem', flexGrow: 1 }}>
             Cash Count
           </Typography>
-          <PriceDisplay label='Dolar Blue' amount={DOLAR_INFORMAL} />
+
+          <PriceDisplay label='Dolar Blue' amount={999} />
         </Toolbar>
       </AppBar>
     </Box>

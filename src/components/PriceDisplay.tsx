@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 interface Props {
   label: string;
-  amount: string;
+  amount: number;
 }
 
 export default function PriceDisplay({ label, amount }: Props) {
