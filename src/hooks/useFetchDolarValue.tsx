@@ -21,16 +21,18 @@ const useFetchDolarValue = () => {
     refetchInterval: DOLAR_REFETCH_INTERVAL_MS,
   });
 
+  let output: string;
+
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    output = 'Loading...';
   }
 
   if (status === 'error') {
-    return <div>Error: Failed to fetch Dolar value.</div>;
+    output = 'Error: Failed to fetch Dolar value.';
   }
 
-  const DOLAR_INFORMAL: string = data?.[1]?.venta || '';
-  return DOLAR_INFORMAL;
+  output = data?.[1]?.venta || 'There was an error';
+  return output;
 };
 
 export default useFetchDolarValue;
