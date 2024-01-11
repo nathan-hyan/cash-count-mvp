@@ -1,9 +1,15 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import Navbar from '~components/Navbar';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <QueryClientProvider client={queryClient}>
+        <Navbar />
+      </QueryClientProvider>
     </div>
   );
 }
