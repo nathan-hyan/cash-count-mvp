@@ -1,1 +1,1 @@
-export const DOLAR_REFETCH_INTERVAL_MS = 300000;
+export const DOLAR_REFETCH_INTERVAL_MS: number = 300000;
